@@ -59,6 +59,6 @@ func main() {
 			return c.SendFile("index.html")
 		}
 	})
+	app.Listen(os.Getenv("0.0.0.0:$PORT"))
 
-	app.Listen("0.0.0.0:$PORT")
 }
