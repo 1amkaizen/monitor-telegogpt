@@ -16,7 +16,7 @@ func main() {
 
 	bot, err := tgbotapi.NewBotAPI(os.Getenv("TELEGRAM_BOT_TOKEN"))
 	if err != nil {
-		fmt.Println("MMISSING_TELEGRAM_BOT_TOKEN")
+		fmt.Println("MISSING_TELEGRAM_BOT_TOKEN")
 		log.Panic(err)
 	}
 
@@ -60,5 +60,5 @@ func main() {
 		}
 	})
 
-	app.Listen("0.0.0.0:3000")
+	app.Listen("0.0.0.0:$PORT")
 }
