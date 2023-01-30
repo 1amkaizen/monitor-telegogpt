@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/gofiber/fiber/v2"
@@ -13,7 +14,7 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New())
 
-	bot, err := tgbotapi.NewBotAPI("5898177748:AAHPJirs8-hTWBwByJwfQ1N-T5wiE9QMlPE")
+	bot, err := tgbotapi.NewBotAPI(os.Getenv("TELEGRAM_BOT_TOKEN"))
 	if err != nil {
 		fmt.Println("MMISSING_TELEGRAM_BOT_TOKEN")
 		log.Panic(err)
@@ -59,5 +60,5 @@ func main() {
 		}
 	})
 
-	app.Listen(":3000")
+	app.Listen("0.0.0.0:3000")
 }
